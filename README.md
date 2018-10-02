@@ -5,7 +5,7 @@
 
 
 @inproceedings{tahmassebi2018ideeple,
-  title={ideeple: Deep learning in a flash},
+  title={ideeple: Deep learning in a flash},\n
   author={Tahmassebi, Amirhessam},
   booktitle={Disruptive Technologies in Information Sciences},
   volume={10652},
