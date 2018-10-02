@@ -5,22 +5,17 @@
 
 ### Bibtex Entry:
 
-@inproceedings{tahmassebi2018ideeple,
 
-  title={ideeple: Deep learning in a flash},
-  
-  author={Tahmassebi, Amirhessam},
-  
-  booktitle={Disruptive Technologies in Information Sciences},
-  
-  volume={10652},
-  
-  pages={106520S},
-  
-  year={2018},
-  
+@inproceedings{tahmassebi2018ideeple, <br/>
+  title={ideeple: Deep learning in a flash},<br/>
+  author={Tahmassebi, Amirhessam},<br/>
+  booktitle={Disruptive Technologies in Information Sciences},<br/>
+  volume={10652},<br/>
+  pages={106520S},<br/>
+  year={2018},<br/>
   organization={International Society for Optics and Photonics}
 }
+
 
 ### APA Entry:
 
