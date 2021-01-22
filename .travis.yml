@@ -12,10 +12,10 @@ jobs:
     - stage: tests
 
       script:
-      - pytest --cov=Regression-Error-Characteristic-Curve --cov-config=.coveragerc
+      - pytest --cov=src --cov-config=.coveragerc
       name: pytestq
 
-    - script: python -m black Regression-Error-Characteristic-Curve --line-length=88
+    - script: python -m black src --line-length=88
       name: pep8
 
     - script: flake8
