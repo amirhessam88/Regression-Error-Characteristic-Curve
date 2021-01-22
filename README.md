@@ -1,9 +1,7 @@
-[![build status](https://travis-ci.com/slickml/slick-ml.svg?branch=master)](https://travis-ci.com/github/slickml/slick-ml)
-[![License](https://img.shields.io/github/license/slickml/slick-ml)](https://github.com/slickml/slick-ml/blob/master/LICENSE/)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/slickml)](https://pypi.org/project/slickml/)
-![PyPI Version](https://img.shields.io/pypi/v/slickml)
-[![Forks](https://img.shields.io/github/forks/slickml/slick-ml)](https://github.com/slickml/slick-ml/network/members/)
-[![Stars](https://img.shields.io/github/stars/slickml/slick-ml)](https://github.com/slickml/slick-ml/stargazers/)
+[![build status](https://travis-ci.com/amirhessam88/Regression-Error-Characteristic-Curve.svg?branch=master)](https://travis-ci.com/github/amirhessam88/Regression-Error-Characteristic-Curve)
+[![License](https://img.shields.io/github/license/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/blob/master/LICENSE)
+[![Forks](https://img.shields.io/github/forks/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/network/members)
+[![Stars](https://img.shields.io/github/stars/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/stargazers)
 
 
 <h1 align="center">
