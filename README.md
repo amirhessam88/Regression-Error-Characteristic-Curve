@@ -36,7 +36,7 @@ myREC.plot_rec()
 ```
 ![rec](https://raw.githubusercontent.com/amirhessam88/Regression-Error-Characteristic-Curve/master/assets/plot.png)
 
-This algorithm is also implemented in more details in **SlickML** library. 
+This algorithm is also implemented in more details in [SlickML](https://github.com/slickml/slick-ml) library. 
 
 ## Installation
 
