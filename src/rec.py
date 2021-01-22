@@ -1,11 +1,11 @@
 # -------------------------------
 # rec.py
-# Author: Amirhessam Tahmassebi 
+# Author: Amirhessam Tahmassebi
 # Email: admin@amirhessam.com
 # Website: www.amirhessam.com
 # Date: November-07-2017
 # -------------------------------
-import pandas as pd
+
 import numpy as np
 import scipy as scp
 import seaborn as sns
@@ -41,11 +41,7 @@ class RegressionErrorCharacteristic:
         Function to plot the REC curve.
     """
 
-    def __init__(
-        self,
-        y_true,
-        y_pred
-    ):
+    def __init__(self, y_true, y_pred):
         if not isinstance(y_true, np.ndarray):
             self.y_true = np.array(y_true)
         else:
@@ -55,7 +51,7 @@ class RegressionErrorCharacteristic:
         else:
             self.y_pred = y_pred
         self.deviation, self.accuracy, self.auc_rec = self._rec_curve()
-        
+
     def _rec_curve(self):
         """
         Function to calculate the rec curve elements: deviation, accuracy, auc.
@@ -87,7 +83,7 @@ class RegressionErrorCharacteristic:
         auc_rec = scp.integrate.simps(accuracy, deviation) / end
 
         return deviation, accuracy, auc_rec
-    
+
     def plot_rec(self, figsize=None, color=None, linestyle=None, fontsize=None):
         """Function to plot REC curve.
         Parameters
@@ -99,11 +95,11 @@ class RegressionErrorCharacteristic:
         linestyle: str, optional, (default="--")
         fontsize: int or float, optional, (default=15)
             Fontsize for xlabel and ylabel, and ticks parameters
-            """
+        """
         sns.set_style("ticks")
         mpl.rcParams["axes.linewidth"] = 3
         mpl.rcParams["lines.linewidth"] = 3
-        
+
         # initializing figsize
         if figsize is None:
             figsize = (8, 5)
@@ -119,14 +115,14 @@ class RegressionErrorCharacteristic:
             color = color
         else:
             raise TypeError("Only str type is allowed for color.")
-            
+
         # initializing linestyle
         if linestyle is None:
             linestyle = "--"
         elif isinstance(linestyle, str):
             linestyle = linestyle
         else:
-            raise TypeError("Only str type is allowed for linestyle.")            
+            raise TypeError("Only str type is allowed for linestyle.")
 
         # initializing fontsize
         if fontsize is None:
@@ -134,7 +130,7 @@ class RegressionErrorCharacteristic:
         elif isinstance(fontsize, float) or isinstance(fontsize, int):
             fontsize = fontsize
         else:
-            raise TypeError("Only int and float types are allowed for fontsize.")        
+            raise TypeError("Only int and float types are allowed for fontsize.")
 
         fig, ax = plt.subplots(figsize=figsize)
 
@@ -146,16 +142,15 @@ class RegressionErrorCharacteristic:
             label=f"AUC = {self.auc_rec:.3f}",
         )
 
-
         ax.set(
             xlim=[-0.01, 1.01],
             ylim=[-0.01, 1.01],
         )
         ax.set_xlabel("Deviation", fontsize=fontsize)
         ax.set_ylabel("Accuarcy", fontsize=fontsize)
-        ax.set_title("REC Curve", fontsize=fontsize)  
+        ax.set_title("REC Curve", fontsize=fontsize)
 
         ax.tick_params(axis="both", which="major", labelsize=14)
         ax.legend(prop={"size": fontsize}, loc=4, framealpha=0.0)
 
-        plt.show()        
+        plt.show()
