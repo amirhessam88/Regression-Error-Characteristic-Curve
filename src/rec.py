@@ -147,7 +147,7 @@ class RegressionErrorCharacteristic:
             ylim=[-0.01, 1.01],
         )
         ax.set_xlabel("Deviation", fontsize=fontsize)
-        ax.set_ylabel("Accuarcy", fontsize=fontsize)
+        ax.set_ylabel("Accuracy", fontsize=fontsize)
         ax.set_title("REC Curve", fontsize=fontsize)
 
         ax.tick_params(axis="both", which="major", labelsize=14)
