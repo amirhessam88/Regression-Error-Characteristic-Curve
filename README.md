@@ -51,7 +51,7 @@ Here is an example using SlickML to quickly visualize the regression metrics:
 ```python
 # plot regression metrics
 from slickml.metrics import RegressionMetrics
-reg_metrics = RegressionMetrics(y_test, y_pred)
+reg_metrics = RegressionMetrics(y_true, y_pred)
 reg_metrics.plot()
 ```
 ![regmetrics](https://raw.githubusercontent.com/amirhessam88/Regression-Error-Characteristic-Curve/master/assets/slick.png)
