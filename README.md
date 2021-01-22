@@ -17,8 +17,8 @@ The resulting curve estimates the cumulative distribution
 function of the error. The area over the REC curve (AOC),
 which can be calculated via the area under the REC curve
 (AOC = 1 - AUC) is a biased estimate of the expected
-error. Furthermore, the coefficient of determination R2 can
-be also calculated with respect to the AOC [Reference 1](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/blob/master/papers/paper2.pdf). Likewise the
+error. Furthermore, the coefficient of determination $R^2$ can also
+be calculated with respect to the AOC [Reference 1](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/blob/master/papers/paper2.pdf). Likewise the
 ROC curve, the shape of the REC curve can also be used
 as a guidance for the users to reveal additional information
 about the data modeling. The REC curve was implemented
@@ -27,7 +27,7 @@ the residuals are also available [Reference 2](https://github.com/amirhessam88/R
 
 
 ## Quick Start
-Here is an exmple of using REC:
+Here is an exmple of using REC. To learn more about the details, you can check [Examples](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/tree/master/examples):
 ```python
 # run feature selection using loaded data
 from src.rec import RegressionErrorCharacteristic
