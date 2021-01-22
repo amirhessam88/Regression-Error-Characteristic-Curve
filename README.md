@@ -1,9 +1,7 @@
-[![build status](https://travis-ci.com/slickml/slick-ml.svg?branch=master)](https://travis-ci.com/github/slickml/slick-ml)
-[![License](https://img.shields.io/github/license/slickml/slick-ml)](https://github.com/slickml/slick-ml/blob/master/LICENSE/)
-[![PyPI - Downloads](https://img.shields.io/pypi/dm/slickml)](https://pypi.org/project/slickml/)
-![PyPI Version](https://img.shields.io/pypi/v/slickml)
-[![Forks](https://img.shields.io/github/forks/slickml/slick-ml)](https://github.com/slickml/slick-ml/network/members/)
-[![Stars](https://img.shields.io/github/stars/slickml/slick-ml)](https://github.com/slickml/slick-ml/stargazers/)
+[![build status](https://travis-ci.com/amirhessam88/Regression-Error-Characteristic-Curve.svg?branch=master)](https://travis-ci.com/github/amirhessam88/Regression-Error-Characteristic-Curve)
+[![License](https://img.shields.io/github/license/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/blob/master/LICENSE)
+[![Forks](https://img.shields.io/github/forks/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/network/members)
+[![Stars](https://img.shields.io/github/stars/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/stargazers)
 
 
 <h1 align="center">
@@ -20,12 +18,12 @@ function of the error. The area over the REC curve (AOC),
 which can be calculated via the area under the REC curve
 (AOC = 1 - AUC) is a biased estimate of the expected
 error. Furthermore, the coefficient of determination R2 can
-be also calculated with respect to the AOC [Reference 1]. Likewise the
+be also calculated with respect to the AOC [Reference 1](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/blob/master/papers/paper2.pdf). Likewise the
 ROC curve, the shape of the REC curve can also be used
 as a guidance for the users to reveal additional information
 about the data modeling. The REC curve was implemented
 in Python and the details of the error metrics and scaling of
-the residuals are also available [Reference 2].
+the residuals are also available [Reference 2](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/blob/master/papers/paper1.pdf).
 
 
 ## Quick Start
@@ -56,7 +54,7 @@ from slickml.metrics import RegressionMetrics
 reg_metrics = RegressionMetrics(y_test, y_pred)
 reg_metrics.plot()
 ```
-![regmetrics](https://raw.githubusercontent.com/amirhessam88/Regression-Error-Characteristic-Curve/master/assets/slickml.png)
+![regmetrics](https://raw.githubusercontent.com/amirhessam88/Regression-Error-Characteristic-Curve/master/assets/slick.png)
 
 ## Citing **REC**
 If you use REC in academic work, please consider citing
