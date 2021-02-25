@@ -29,7 +29,7 @@ the residuals are also available [Reference 2](https://github.com/amirhessam88/R
 ## Quick Start
 Here is an exmple of using REC. To learn more about the details, you can check [Examples](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/tree/master/examples):
 ```python
-# run feature selection using loaded data
+# plot REC curve
 from src.rec import RegressionErrorCharacteristic
 myREC = RegressionErrorCharacteristic(y_true, y_pred)
 myREC.plot_rec()
