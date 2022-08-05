@@ -1,0 +1,37 @@
+[flake8]
+max-line-length = 100
+
+ignore = 
+    E501,
+    E203,
+    E402,
+    W503
+    ANN002,
+    ANN003,
+    ANN101,
+    ANN102,
+    ANN202,
+    ANN203,
+    ANN204,
+    ANN401
+
+exclude =
+    .vscode
+    .github
+    .ipynb_checkpoints
+    .git,
+    __pycache__,
+    docs/conf.py,
+    old,
+    build,
+    dist,
+    .venv/*,
+    .pytest_cache,
+    .tox,
+    .python-version,
+    .mypy_cache,
+    htmlcov/*,
+    xmlcov/*,
+    .coverage
+    
+    
