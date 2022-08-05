@@ -1,4 +1,4 @@
-[![build status](https://travis-ci.com/amirhessam88/Regression-Error-Characteristic-Curve.svg?branch=master)](https://travis-ci.com/github/amirhessam88/Regression-Error-Characteristic-Curve)
+[![build](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/actions/workflows/ci.yml/badge.svg)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/actions/workflows/ci.yml)
 [![License](https://img.shields.io/github/license/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/blob/master/LICENSE)
 [![Forks](https://img.shields.io/github/forks/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/network/members)
 [![Stars](https://img.shields.io/github/stars/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/stargazers)
@@ -30,51 +30,55 @@ the residuals are also available [Reference 2](https://github.com/amirhessam88/R
 Here is an exmple of using REC. To learn more about the details, you can check [Examples](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/tree/master/examples):
 ```python
 # plot REC curve
-from src.rec import RegressionErrorCharacteristic
-myREC = RegressionErrorCharacteristic(y_true, y_pred)
-myREC.plot_rec()
+from rec import RegressionErrorCharacteristic
+r = RegressionErrorCharacteristic(y_true, y_pred)
+r.plot()
 ```
 ![rec](https://raw.githubusercontent.com/amirhessam88/Regression-Error-Characteristic-Curve/master/assets/plot.png)
 
-This algorithm is also implemented in more details in [SlickML](https://github.com/slickml/slick-ml) library. 
+## Better Option: SlickML
 
-## Installation
-
-First, install Python 3.6 from https://www.python.org, and then run:
+This algorithm is also implemented in more details in **SlickML** library.
+For more info, please check out  [SlickML GitHub](https://github.com/slickml/slick-ml) and [SlickML API Docs](https://www.docs.slickml.com).
 
 ```
 pip install slickml
 ```
 
-Here is an example using SlickML to quickly visualize the regression metrics:
+Here is an example using **SlickML** to quickly visualize the regression metrics:
 
 ```python
 # plot regression metrics
 from slickml.metrics import RegressionMetrics
-reg_metrics = RegressionMetrics(y_true, y_pred)
-reg_metrics.plot()
+r = RegressionMetrics(y_true, y_pred)
+r.plot()
 ```
 ![regmetrics](https://raw.githubusercontent.com/amirhessam88/Regression-Error-Characteristic-Curve/master/assets/slick.png)
 
+
+## Contributing
+Pull requests are more than welcome!
+
+
 ## Citing **REC**
-If you use REC in academic work, please consider citing
-https://doi.org/10.1117/12.2304418 .
+If you use REC in academic work, please consider citing my `SlickML` library.
+
 
 ### Bibtex Entry:
 ```bib
-@inproceedings{tahmassebi2018ideeple,
-  title={ideeple: Deep learning in a flash},
-  author={Tahmassebi, Amirhessam},
-  booktitle={Disruptive Technologies in Information Sciences},
-  volume={10652},
-  pages={106520S},
-  year={2018},
-  organization={International Society for Optics and Photonics}
+@software{slickml2020,
+  title={SlickML: Slick Machine Learning in Python},
+  author={Tahmassebi, Amirhessam and Smith, Trace},
+  url={https://github.com/slickml/slick-ml},
+  version={0.2.0},
+  year={2021},
+}
+
+@article{tahmassebi2021slickml,
+  title={Slickml: Slick machine learning in python},
+  author={Tahmassebi, Amirhessam and Smith, Trace},
+  journal={URL available at: https://github. com/slickml/slick-ml},
+  year={2021}
 }
 ```
-### APA Entry:
-
-Tahmassebi, A. (2018, May). ideeple: Deep learning in a flash. In Disruptive
-Technologies in Information Sciences (Vol. 10652, p. 106520S). International
-Society for Optics and Photonics.
 
