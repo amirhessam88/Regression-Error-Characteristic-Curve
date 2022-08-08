@@ -63,7 +63,7 @@ class RegressionErrorCharacteristic:
 
     Methods
     -------
-    plot(figsize=None, color=None, linestyle=None, fontsize=None, save_path=None, display_plot=None)
+    plot(figsize=(8, 5), color="navy", linestyle="--", fontsize=15, save_path=None, display_plot=False, return_fig=False)
         Plots the REC curve
     """
 
@@ -94,20 +94,23 @@ class RegressionErrorCharacteristic:
         accuracy = []
         deviation = np.arange(begin, end, interval)
 
-        # main loop to calculate norm and compare with each deviation
-        for i in range(len(deviation)):
+        # TODO(amir): come back to this and remove the `np.array()` casting
+        # somehow, mypy does not like List[float], however, the list is already cast in post-init
+        norms = np.abs(np.array(self.y_true) - np.array(self.y_pred)) / np.sqrt(
+            np.array(self.y_true) ** 2 + np.array(self.y_pred) ** 2,
+        )
+
+        # main loop to count the number of times that the calculated norm is less than deviation
+        for _, dev in enumerate(deviation):
             count = 0.0
-            for j in range(len(self.y_true)):
-                calc_norm = np.linalg.norm(self.y_true[j] - self.y_pred[j]) / np.sqrt(
-                    np.linalg.norm(self.y_true[j]) ** 2 + np.linalg.norm(self.y_pred[j]) ** 2,
-                )
-                if calc_norm < deviation[i]:
+            for _, norm in enumerate(norms):
+                if norm < dev:
                     count += 1
             accuracy.append(count / len(self.y_true))
 
         auc_rec = scp.integrate.simps(accuracy, deviation) / end
 
-        return (deviation, accuracy, auc_rec)
+        return (deviation, np.array(accuracy), auc_rec)
 
     def plot(
         self,
@@ -117,7 +120,8 @@ class RegressionErrorCharacteristic:
         fontsize: Optional[float] = 15.0,
         save_path: Optional[str] = None,
         display_plot: Optional[bool] = True,
-    ) -> Figure:
+        return_fig: Optional[bool] = False,
+    ) -> Optional[Figure]:
         """Plots the REC curve.
 
         Parameters
@@ -140,9 +144,12 @@ class RegressionErrorCharacteristic:
         display_plot : bool, optional
             Whether to display plot, by default True
 
+        return_fig : bool, optional
+            Whether to return figure object, by default False
+
         Returns
         -------
-        Figure
+        Figure, optional
         """
         sns.set_style("ticks")
         mpl.rcParams["axes.linewidth"] = 3
@@ -203,4 +210,7 @@ class RegressionErrorCharacteristic:
         if display_plot:
             plt.show()
 
-        return fig
+        if return_fig:
+            return fig
+
+        return None
