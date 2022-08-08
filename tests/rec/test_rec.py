@@ -37,13 +37,16 @@ class TestRegressionErrorCharacteristic:
     )
     def test_rec_instantiation__passes__with_default_inputs(self, kwargs: Dict[str, Any]) -> None:
         r = RegressionErrorCharacteristic(**kwargs)
-        f = r.plot(display_plot=False)
+        f = r.plot(
+            display_plot=False,
+            return_fig=True,
+        )
 
         assert_that(r.y_true).is_instance_of(np.ndarray)
         assert_that(r.y_pred).is_instance_of(np.ndarray)
         assert_that(r.auc_rec).is_instance_of(float)
         assert_that(r.deviation).is_instance_of(np.ndarray)
-        assert_that(r.accuracy).is_instance_of(list)
+        assert_that(r.accuracy).is_instance_of(np.ndarray)
         assert_that(f).is_instance_of(Figure)
 
     @pytest.mark.parametrize(
