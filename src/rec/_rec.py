@@ -16,6 +16,7 @@ import pandas as pd
 import scipy as scp
 import seaborn as sns
 from matplotlib.figure import Figure
+from bisect import bisect_left
 
 
 @dataclass
@@ -101,12 +102,21 @@ class RegressionErrorCharacteristic:
         )
 
         # main loop to count the number of times that the calculated norm is less than deviation
-        for _, dev in enumerate(deviation):
-            count = 0.0
-            for _, norm in enumerate(norms):
-                if norm < dev:
-                    count += 1
-            accuracy.append(count / len(self.y_true))
+        # for _, dev in enumerate(deviation):
+        #     count = 0.0
+        #     for _, norm in enumerate(norms):
+        #         if norm < dev:
+        #             count += 1
+        #     accuracy.append(count / len(self.y_true))
+
+        # Improving the time complexity of the norm less than deviation
+        np.sort(norms)
+        n = len(self.y_true)
+        for _ , dev in enumerate(deviation):
+            count = bisect_left(norms, dev)
+            accuracy.append(count/n)
+                
+
 
         auc_rec = scp.integrate.simps(accuracy, deviation) / end
 
