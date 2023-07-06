@@ -50,7 +50,7 @@ python = ">=3.8,<3.11"
 # --- scientific-computing ---
 numpy = "^1.23"
 pandas = "^1.4"
-scipy = "^1.9"
+scipy = "^1.10"
 scikit-learn = "^1.1"
 
 # --- visualization ---
