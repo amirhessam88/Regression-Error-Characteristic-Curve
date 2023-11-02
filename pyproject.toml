@@ -61,7 +61,7 @@ seaborn = "^0.11"
 [tool.poetry.dev-dependencies]
 
 # --- package-management ---
-pip = "^22.2"
+pip = "^23.3"
 
 # --- task-management ---
 poethepoet = "^0.13"
