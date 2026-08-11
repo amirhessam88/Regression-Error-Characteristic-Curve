@@ -41,7 +41,7 @@ jobs:
       # -----  install & configure uv  -----
       #----------------------------------------------
       - name: Install uv
-        uses: astral-sh/setup-uv@v9
+        uses: astral-sh/setup-uv@v9.0.0
         with:
           enable-cache: true
           cache-dependency-glob: "uv.lock"
