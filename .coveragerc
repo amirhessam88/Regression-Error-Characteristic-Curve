@@ -1,12 +1,15 @@
+# Reference: https://coverage.readthedocs.io/en/latest/
+
 [run]
 branch = True
 parallel = True
-    
+
 omit =
     */__init__.py
 
 [report]
 show_missing = True
+fail_under = 100
 
 [html]
 directory = htmlcov

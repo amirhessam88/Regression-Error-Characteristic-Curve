@@ -1,0 +1,34 @@
+# https://docs.astral.sh/ruff/configuration/
+
+line-length = 100
+target-version = "py310"
+src = ["src", "tests", "examples"]
+extend-exclude = [".venv", "htmlcov", "xmlcov", "*.ipynb"]
+
+[lint]
+select = [
+    "E",   # pycodestyle errors
+    "W",   # pycodestyle warnings
+    "F",   # pyflakes
+    "I",   # isort
+    "UP",  # pyupgrade
+    "B",   # flake8-bugbear
+    "SIM", # flake8-simplify
+    "ANN", # type annotations
+]
+ignore = [
+    "ANN401", # Allow Any where test parametrization requires it
+]
+
+[lint.per-file-ignores]
+"tests/**/*.py" = ["ANN"]
+"examples/**/*.py" = ["ANN"]
+
+[lint.isort]
+known-first-party = ["rec"]
+
+[format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "auto"
+docstring-code-format = true

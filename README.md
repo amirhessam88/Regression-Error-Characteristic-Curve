@@ -27,21 +27,32 @@ the residuals are also available [Reference 2](https://github.com/amirhessam88/R
 
 
 ## Quick Start
-Here is an exmple of using REC. To learn more about the details, you can check [Examples](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/tree/master/examples):
+Here is an example of using REC. To learn more about the details, you can check [Examples](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/tree/master/examples):
 ```python
 # plot REC curve
 from rec import RegressionErrorCharacteristic
+
 r = RegressionErrorCharacteristic(y_true, y_pred)
 r.plot()
 ```
 ![rec](https://raw.githubusercontent.com/amirhessam88/Regression-Error-Characteristic-Curve/master/assets/plot.png)
+
+## Development
+
+```bash
+uv sync
+uv tool install poethepoet
+poe check
+poe test
+poe build
+```
 
 ## Better Option: SlickML
 
 This algorithm is also implemented in more details in **SlickML** library.
 For more info, please check out  [SlickML GitHub](https://github.com/slickml/slick-ml) and [SlickML API Docs](https://www.docs.slickml.com).
 
-```
+```bash
 pip install slickml
 ```
 
@@ -50,6 +61,7 @@ Here is an example using **SlickML** to quickly visualize the regression metrics
 ```python
 # plot regression metrics
 from slickml.metrics import RegressionMetrics
+
 r = RegressionMetrics(y_true, y_pred)
 r.plot()
 ```

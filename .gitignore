@@ -2,6 +2,12 @@
 # Created by https://www.toptal.com/developers/gitignore/api/vim,linux,emacs,macos,python,windows,pycharm+all,sublimetext,intellij+all,visualstudio,jupyternotebooks,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=vim,linux,emacs,macos,python,windows,pycharm+all,sublimetext,intellij+all,visualstudio,jupyternotebooks,visualstudiocode
 
+# ruff
+.ruff_cache/
+
+# coverage
+xmlcov/
+
 ### Emacs ###
 # -*- mode: gitignore; -*-
 *~
