@@ -1,117 +1,167 @@
-[tool.poetry]
+[project]
 name = "rec"
-version = "1.0.0"
-description = "Regression Error Charactersitics Curve in Python"
-license = "Apache-2.0"
+version = "2.0.0"
+description = "Regression Error Characteristics Curve in Python"
+readme = "README.md"
+license = { text = "Apache-2.0" }
 authors = [
-    "Amirhessam Tahmassebi <admin@amirhessam.com>",
+    { name = "Amirhessam Tahmassebi", email = "admin@amirhessam.com" },
 ]
 maintainers = [
-    "Amirhessam Tahmassebi <admin@amirhessam.com>",
+    { name = "Amirhessam Tahmassebi", email = "admin@amirhessam.com" },
 ]
-readme = "README.md"
-homepage = "https://www.slickml.com"
-repository = "https://github.com/amirhessam88/Regression-Error-Characteristic-Curve"
-documentation = "https://www.docs.slickml.com"
+requires-python = ">=3.10"
 keywords = [
     "python",
     "data-science",
     "machine-learning",
+    "regression",
+    "rec-curve",
 ]
-
 classifiers = [
-    "Development Status :: 1 - Planning",
+    "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "Intended Audience :: Science/Research",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
-    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Natural Language :: English",
     "Topic :: Software Development :: Libraries :: Python Modules",
     "Typing :: Typed",
 ]
-packages = [
-    { include = "rec", from = "src" },
+dependencies = [
+    # --- scientific-computing ---
+    "numpy>=1.23",
+    "pandas>=1.4",
+    "scipy>=1.10",
+    # --- visualization ---
+    "matplotlib>=3.5",
+    "seaborn>=0.11",
 ]
-include = ["src/rec", "*.md"]
-exclude = [
-    "assets",
-    "tests",
-    "examples",
+
+[project.optional-dependencies]
+dev = [
+    "assertpy>=1.1",
+    "mypy>=1.8",
+    "pandas-stubs>=1.5",
+    "poethepoet>=0.32",
+    "pytest>=8.3",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "tox>=4.22",
+    "tox-uv>=1.25",
 ]
 
-
-[tool.poetry.dependencies]
-python = ">=3.8,<3.11"
-
-# --- scientific-computing ---
-numpy = "^1.23"
-pandas = "^1.4"
-scipy = "^1.10"
-scikit-learn = "^1.1"
-
-# --- visualization ---
-matplotlib = "^3.5"
-seaborn = "^0.11"
-
-
-[tool.poetry.dev-dependencies]
-
-# --- package-management ---
-pip = "^23.3"
-
-# --- task-management ---
-poethepoet = "^0.13"
-
-# --- formatting ---
-add-trailing-comma = "^2.2"
-isort = "^5.10"
-black = "^22.3"
-jupyter-black = "^0.3"
-
-# --- linting ---
-flake8 = "^5.0"
-flake8-commas = "^2.1"
-flake8-annotations = "^2.9.1"
-mypy = "^0.971"
-
-# --- unit-testing ---
-pytest = "^7.1"
-pytest-cov = "^3.0"
-pytest-mock = "^3.7"
-mock = "^4.0"
-coverage = "^6.4"
-assertpy = "^1.1"
-
-# --- jupyter ---
-ipykernel = "^6.13"
-jupytext = "^1.14"
-
+[project.urls]
+Homepage = "https://www.slickml.com"
+Repository = "https://github.com/amirhessam88/Regression-Error-Characteristic-Curve"
+Documentation = "https://www.docs.slickml.com"
 
 [build-system]
-requires = ["poetry-core>=1.0.0"]
-build-backend = "poetry.core.masonry.api"
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rec"]
+
+[tool.hatch.build.targets.sdist]
+include = [
+    "/src",
+    "/assets",
+    "/README.md",
+    "/LICENSE",
+    "/pyproject.toml",
+]
+exclude = ["/.gitignore"]
+
+[tool.uv]
+default-groups = ["dev"]
+
+[dependency-groups]
+dev = [
+    "assertpy>=1.1",
+    "mypy>=1.8",
+    "pandas-stubs>=1.5",
+    "poethepoet>=0.32",
+    "pytest>=8.3",
+    "pytest-cov>=5.0",
+    "ruff>=0.6",
+    "tox>=4.22",
+    "tox-uv>=1.25",
+]
 
 
 # -- try `poe --help` for options
 [tool.poe.tasks]
-add-trailing-comma = { cmd = "poetry run add-trailing-comma --exit-zero-even-if-changed src/**/*.py tests/**/*.py", help = "Format code style via add-trailing-comma" }
-black = { cmd = "poetry run black --line-length 100 .", help = "Format code style via black" }
-isort = { cmd = "poetry run isort --profile black .", help = "Sort imported libraries via isort" }
-flake8 = { cmd = "poetry run flake8 --verbose --benchmark --color always --config .flake8 .", help = "Lint code via flake8" }
-mypy = { cmd = "poetry run mypy --verbose --config-file mypy.ini .", help = "Lint types via mypy" }
-test = { cmd = "poetry run python -m pytest --cov=src --cov-report=term --cov-report=html --cov-report=xml --cov-config=.coveragerc --tb=short -ra -v", help = "Run unit-tests via pytest" }
-format = [
-    { ref = "add-trailing-comma" },
-    { ref = "isort" },
-    { ref = "black" },
+
+[tool.poe.tasks.greet]
+help = "Runtime user greetings"
+cmd = """
+echo "Welcome to REC ♡♡♡ $USER ♡♡♡ ...\n\n\
+██████╗ ███████╗ ██████╗
+██╔══██╗██╔════╝██╔════╝
+██████╔╝█████╗  ██║
+██╔══██╗██╔══╝  ██║
+██║  ██║███████╗╚██████╗
+╚═╝  ╚═╝╚══════╝ ╚═════╝\
+" """
+
+[tool.poe.tasks.clean]
+help = "Remove ignored caches, coverage, and build artifacts"
+cmd = """
+    rm -rf .coverage
+           .coverage.*
+           dist/
+           build/
+           .mypy_cache/
+           .pytest_cache/
+           .ruff_cache/
+           .tox/
+           htmlcov/
+           xmlcov/
+           **/__pycache__/
+           **/.ipynb_checkpoints/
+    """
+
+[tool.poe.tasks.mypy]
+help = "Lint types via mypy"
+cmd = "mypy"
+
+[tool.poe.tasks.format]
+help = "Format code via ruff"
+cmd = "ruff format ."
+
+[tool.poe.tasks.check]
+help = "Check all linting steps."
+sequence = [
+    "greet",
+    { cmd = "poe format --check" },
+    { cmd = "ruff check ." },
+    { cmd = "poe mypy" },
 ]
-check = [
-    { cmd = "poe black --check" },
-    { cmd = "poe isort --check-only" },
-    { ref = "flake8" },
-    { ref = "mypy" },
-]
+
+[tool.poe.tasks.test]
+help = "Run unit-tests via pytest"
+cmd = """
+    python -m pytest
+        --cov=rec
+        --cov-report=term-missing
+        --cov-report=html
+        --cov-report=xml
+        --cov-config=.coveragerc
+        --tb=short
+        -ra
+        -v
+    """
+
+[tool.poe.tasks.tox]
+help = "Run check + test + build across Python versions via tox"
+cmd = "tox"
+
+[tool.poe.tasks.build]
+help = "Build sdist and wheel via uv"
+cmd = "uv build"

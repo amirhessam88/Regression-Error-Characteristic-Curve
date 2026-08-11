@@ -7,7 +7,6 @@
 # -------------------------------
 
 from dataclasses import dataclass
-from typing import List, Optional, Tuple, Union
 
 import matplotlib as mpl
 import matplotlib.pyplot as plt
@@ -41,10 +40,10 @@ class RegressionErrorCharacteristic:
 
     Parameters
     ----------
-    y_true : Union[List[float], pd.Series, np.ndarray]
+    y_true : list[float] | pd.Series | np.ndarray
         Ground truth target (response) values
 
-    y_pred : Union[List[float], pd.Series, np.ndarray]
+    y_pred : list[float] | pd.Series | np.ndarray
         Predicted target values
 
     Attributes
@@ -63,12 +62,20 @@ class RegressionErrorCharacteristic:
 
     Methods
     -------
-    plot(figsize=(8, 5), color="navy", linestyle="--", fontsize=15, save_path=None, display_plot=False, return_fig=False)
+    plot(
+        figsize=(8, 5),
+        color="navy",
+        linestyle="--",
+        fontsize=15,
+        save_path=None,
+        display_plot=False,
+        return_fig=False,
+    )
         Plots the REC curve
     """
 
-    y_true: Union[List[float], pd.Series, np.ndarray]
-    y_pred: Union[List[float], pd.Series, np.ndarray]
+    y_true: list[float] | pd.Series | np.ndarray
+    y_pred: list[float] | pd.Series | np.ndarray
 
     def __post_init__(self) -> None:
         if not isinstance(self.y_true, np.ndarray):
@@ -81,7 +88,7 @@ class RegressionErrorCharacteristic:
             self.auc_rec,
         ) = self._rec_curve()
 
-    def _rec_curve(self) -> Tuple[np.ndarray, np.ndarray, float]:
+    def _rec_curve(self) -> tuple[np.ndarray, np.ndarray, float]:
         """Calculates the rec curve elements: deviation, accuracy, auc.
 
         Returns
@@ -108,20 +115,20 @@ class RegressionErrorCharacteristic:
                     count += 1
             accuracy.append(count / len(self.y_true))
 
-        auc_rec = scp.integrate.simps(accuracy, deviation) / end
+        auc_rec = scp.integrate.simpson(accuracy, x=deviation) / end
 
         return (deviation, np.array(accuracy), auc_rec)
 
     def plot(
         self,
-        figsize: Optional[Tuple[float, float]] = (8, 5),
-        color: Optional[str] = "navy",
-        linestyle: Optional[str] = "--",
-        fontsize: Optional[float] = 15.0,
-        save_path: Optional[str] = None,
-        display_plot: Optional[bool] = True,
-        return_fig: Optional[bool] = False,
-    ) -> Optional[Figure]:
+        figsize: tuple[float, float] | None = (8, 5),
+        color: str | None = "navy",
+        linestyle: str | None = "--",
+        fontsize: float | None = 15.0,
+        save_path: str | None = None,
+        display_plot: bool | None = True,
+        return_fig: bool | None = False,
+    ) -> Figure | None:
         """Plots the REC curve.
 
         Parameters
@@ -163,9 +170,8 @@ class RegressionErrorCharacteristic:
             raise TypeError("Only str type is allowed for linestyle.")
         if not isinstance(fontsize, float):
             raise TypeError("Only float type is allowed for fontsize.")
-        if save_path is not None:
-            if not isinstance(save_path, str):
-                raise TypeError("Only str type is allowed for save_path.")
+        if save_path is not None and not isinstance(save_path, str):
+            raise TypeError("Only str type is allowed for save_path.")
 
         fig, ax = plt.subplots(figsize=figsize)
         ax.plot(
