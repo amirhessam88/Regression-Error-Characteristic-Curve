@@ -1,8 +1,15 @@
-[![build](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/actions/workflows/ci.yml/badge.svg)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/actions/workflows/ci.yml)
-[![License](https://img.shields.io/github/license/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/blob/master/LICENSE)
-[![Forks](https://img.shields.io/github/forks/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/network/members)
-[![Stars](https://img.shields.io/github/stars/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/stargazers)
+<div align="center">
 
+[![build](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/actions/workflows/ci.yml/badge.svg)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/actions/workflows/ci.yml)
+[![codecov](https://codecov.io/gh/amirhessam88/Regression-Error-Characteristic-Curve/graph/badge.svg?token=8F8J9YIZWQ)](https://codecov.io/gh/amirhessam88/Regression-Error-Characteristic-Curve)
+[![license](https://img.shields.io/github/license/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/blob/master/LICENSE)
+![python_version](https://img.shields.io/badge/python-%3E%3D3.10-blue)
+[![ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff)
+[![uv](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/astral-sh/uv/main/assets/badge/v0.json)](https://github.com/astral-sh/uv)
+[![forks](https://img.shields.io/github/forks/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/network/members)
+[![stars](https://img.shields.io/github/stars/amirhessam88/Regression-Error-Characteristic-Curve)](https://github.com/amirhessam88/Regression-Error-Characteristic-Curve/stargazers)
+
+</div>
 
 <h1 align="center">
     Regression Error Characteristic Curve in Python
